@@ -98,7 +98,7 @@ extension PostDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
         cell.selectionStyle = .none
-        cell.authorLabel.text = commentArr[indexPath.row].name.capitalized
+        cell.authorLabel.text = commentArr[indexPath.row].email.components(separatedBy: "@")[0]
         cell.commentBodyLabel.text = commentArr[indexPath.row].body
         
         return cell
