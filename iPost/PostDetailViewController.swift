@@ -9,6 +9,7 @@ import UIKit
 
 class PostDetailViewController: UIViewController {
     
+    var userId: Int?
     var postId: Int?
     var postTitle: String?
     var postBody: String?
@@ -17,13 +18,14 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postBodyLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    var commentArr: [CommentData] = []
+    var commentArr: [Comment] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,20 @@ class PostDetailViewController: UIViewController {
     private func setUpComponent() {
         postTitleLabel.text = postTitle?.capitalized
         postBodyLabel.text = postBody?.capitalized
-        usernameLabel.text = "Made by me"
+        
+        if let username = username {
+            usernameLabel.text = username
+        }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(usernameTapped(sender:)))
+        usernameLabel.isUserInteractionEnabled = true
+        usernameLabel.addGestureRecognizer(tap)
+    }
+    
+    @objc func usernameTapped(sender: UITapGestureRecognizer) {
+        let storyboard = UIStoryboard(name: "UserDetail", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "UserDetail") as! UserDetailViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func getCommentsByPostId(_ id: Int) {
@@ -54,18 +69,17 @@ class PostDetailViewController: UIViewController {
             if error != nil {
                 print(error as Any)
             } else {
-                let httpResponse = response as? HTTPURLResponse
-            }
-            
-            if let data = data {
-                do {
-                    self.commentArr = try JSONDecoder().decode([CommentData].self, from: data)
+                if let data = data {
+                    do {
+                        self.commentArr = try JSONDecoder().decode([Comment].self, from: data)
 
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            self.commentLabel.text = "\(self.commentArr.count) Comments"
+                        }
+                    } catch let error {
+                        print(error.localizedDescription)
                     }
-                } catch let error {
-                    print(error.localizedDescription)
                 }
             }
         })
@@ -83,8 +97,8 @@ extension PostDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
-        
-        cell.authorLabel.text = commentArr[indexPath.row].email
+        cell.selectionStyle = .none
+        cell.authorLabel.text = commentArr[indexPath.row].name.capitalized
         cell.commentBodyLabel.text = commentArr[indexPath.row].body
         
         return cell

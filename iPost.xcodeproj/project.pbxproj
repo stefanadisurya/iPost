@@ -22,6 +22,8 @@
 		F3219FC9271BD2610046C433 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3219FC8271BD2610046C433 /* Comment.swift */; };
 		F3219FCC271BD49B0046C433 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */; };
 		F3219FCD271BD49B0046C433 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */; };
+		F3219FCF271BE7B00046C433 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3219FCE271BE7B00046C433 /* UserDetailViewController.swift */; };
+		F3219FD1271BE7CD0046C433 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3219FD0271BE7CD0046C433 /* UserDetail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		F3219FC8271BD2610046C433 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		F3219FCE271BE7B00046C433 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		F3219FD0271BE7CD0046C433 /* UserDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				F3219FC6271BC2230046C433 /* PostDetail.storyboard */,
 				F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */,
 				F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */,
+				F3219FCE271BE7B00046C433 /* UserDetailViewController.swift */,
+				F3219FD0271BE7CD0046C433 /* UserDetail.storyboard */,
 			);
 			path = iPost;
 			sourceTree = "<group>";
@@ -154,6 +160,7 @@
 			files = (
 				F318D963271A92AE006FF8DB /* LaunchScreen.storyboard in Resources */,
 				F3219FCD271BD49B0046C433 /* CommentTableViewCell.xib in Resources */,
+				F3219FD1271BE7CD0046C433 /* UserDetail.storyboard in Resources */,
 				F318D960271A92AE006FF8DB /* Assets.xcassets in Resources */,
 				F318D95E271A92AD006FF8DB /* Main.storyboard in Resources */,
 				F318D96D271A93A6006FF8DB /* PostTableViewCell.xib in Resources */,
@@ -171,6 +178,7 @@
 				F318D95B271A92AD006FF8DB /* ViewController.swift in Sources */,
 				F3219FC5271BC20C0046C433 /* PostDetailViewController.swift in Sources */,
 				F318D957271A92AD006FF8DB /* AppDelegate.swift in Sources */,
+				F3219FCF271BE7B00046C433 /* UserDetailViewController.swift in Sources */,
 				F3219FC9271BD2610046C433 /* Comment.swift in Sources */,
 				F3219FCC271BD49B0046C433 /* CommentTableViewCell.swift in Sources */,
 				F318D971271AA842006FF8DB /* User.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PostData: Codable {
+struct Post: Codable {
     var userId, id: Int
     var title, body: String
 }
