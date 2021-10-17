@@ -78,26 +78,194 @@
 		F318D955271A92AD006FF8DB /* iPost */ = {
 			isa = PBXGroup;
 			children = (
+				F31DC1D3271C14C8003B365E /* Feature */,
+				F31DC1D4271C14DA003B365E /* Themes */,
+				F31DC1D5271C14DF003B365E /* Helper */,
+				F31DC1DA271C1639003B365E /* Utilities */,
 				F318D956271A92AD006FF8DB /* AppDelegate.swift */,
 				F318D958271A92AD006FF8DB /* SceneDelegate.swift */,
-				F318D95A271A92AD006FF8DB /* ViewController.swift */,
-				F318D95C271A92AD006FF8DB /* Main.storyboard */,
-				F318D95F271A92AE006FF8DB /* Assets.xcassets */,
-				F318D961271A92AE006FF8DB /* LaunchScreen.storyboard */,
 				F318D964271A92AE006FF8DB /* Info.plist */,
+			);
+			path = iPost;
+			sourceTree = "<group>";
+		};
+		F31DC1D3271C14C8003B365E /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1DD271C1809003B365E /* Pages */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		F31DC1D4271C14DA003B365E /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1D8271C1530003B365E /* UI */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		F31DC1D5271C14DF003B365E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		F31DC1D8271C1530003B365E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1DB271C179F003B365E /* PostTableViewCell */,
+				F31DC1DC271C17B3003B365E /* CommentTableViewCell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F31DC1DA271C1639003B365E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1E7271C1923003B365E /* Model */,
+				F31DC1E8271C19B5003B365E /* Assets */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F31DC1DB271C179F003B365E /* PostTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				F318D96A271A93A6006FF8DB /* PostTableViewCell.swift */,
 				F318D96B271A93A6006FF8DB /* PostTableViewCell.xib */,
+			);
+			path = PostTableViewCell;
+			sourceTree = "<group>";
+		};
+		F31DC1DC271C17B3003B365E /* CommentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */,
+				F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */,
+			);
+			path = CommentTableViewCell;
+			sourceTree = "<group>";
+		};
+		F31DC1DD271C1809003B365E /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1E9271C1AA8003B365E /* LaunchScreen */,
+				F31DC1DF271C1847003B365E /* PostList */,
+				F31DC1E2271C1863003B365E /* PostDetail */,
+				F31DC1E5271C1887003B365E /* UserDetail */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		F31DC1DE271C181C003B365E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3219FD0271BE7CD0046C433 /* UserDetail.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F31DC1DF271C1847003B365E /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1E0271C184F003B365E /* View */,
+				F31DC1E1271C1853003B365E /* Controller */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
+		F31DC1E0271C184F003B365E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F318D95C271A92AD006FF8DB /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F31DC1E1271C1853003B365E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F318D95A271A92AD006FF8DB /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F31DC1E2271C1863003B365E /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1E3271C186D003B365E /* View */,
+				F31DC1E4271C1875003B365E /* Controller */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		F31DC1E3271C186D003B365E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3219FC6271BC2230046C433 /* PostDetail.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F31DC1E4271C1875003B365E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F3219FC4271BC20C0046C433 /* PostDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F31DC1E5271C1887003B365E /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1DE271C181C003B365E /* View */,
+				F31DC1E6271C18A0003B365E /* Controller */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		F31DC1E6271C18A0003B365E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F3219FCE271BE7B00046C433 /* UserDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F31DC1E7271C1923003B365E /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				F318D96E271A97F4006FF8DB /* Post.swift */,
 				F318D970271AA842006FF8DB /* User.swift */,
 				F3219FC8271BD2610046C433 /* Comment.swift */,
-				F3219FC4271BC20C0046C433 /* PostDetailViewController.swift */,
-				F3219FC6271BC2230046C433 /* PostDetail.storyboard */,
-				F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */,
-				F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */,
-				F3219FCE271BE7B00046C433 /* UserDetailViewController.swift */,
-				F3219FD0271BE7CD0046C433 /* UserDetail.storyboard */,
 			);
-			path = iPost;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F31DC1E8271C19B5003B365E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F318D95F271A92AE006FF8DB /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F31DC1E9271C1AA8003B365E /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F31DC1EA271C1ADA003B365E /* View */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		F31DC1EA271C1ADA003B365E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F318D961271A92AE006FF8DB /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
