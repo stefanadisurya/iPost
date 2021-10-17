@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         setUpCell()
         
         loadDataFromAPI()
-        getAllUser()
     }
     
     private func setUpCell() {
@@ -56,40 +55,6 @@ class ViewController: UIViewController {
 //                        self.getUser(id: self.idArray[i])
                     }
 
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            }
-        })
-        
-        dataTask.resume()
-    }
-    
-    private func getAllUser() {
-        let request = NSMutableURLRequest(url: NSURL(string: "https://jsonplaceholder.typicode.com/users")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            if error != nil {
-                print(error as Any)
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-            }
-            
-            if let data = data {
-                do {
-                    self.userArray = try JSONDecoder().decode([UserData].self, from: data)
-                    
-                    for i in 0..<self.userArray.count {
-                        self.nameArray.append(self.userArray[i].name)
-                    }
-                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -150,9 +115,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.postTile.text = dataArray[indexPath.row].title.capitalized
         cell.postBody.text = dataArray[indexPath.row].body.capitalized
-        cell.userNameAndCompany.text = "\(nameArray[0])"
+//        cell.userNameAndCompany.text = "\(nameArray[0])"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "PostDetail", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PostDetail") as! PostDetailViewController
+        vc.postId = dataArray[indexPath.row].id
+        vc.postTitle = dataArray[indexPath.row].title
+        vc.postBody = dataArray[indexPath.row].body
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

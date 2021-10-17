@@ -17,6 +17,11 @@
 		F318D96D271A93A6006FF8DB /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F318D96B271A93A6006FF8DB /* PostTableViewCell.xib */; };
 		F318D96F271A97F4006FF8DB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318D96E271A97F4006FF8DB /* Post.swift */; };
 		F318D971271AA842006FF8DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318D970271AA842006FF8DB /* User.swift */; };
+		F3219FC5271BC20C0046C433 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3219FC4271BC20C0046C433 /* PostDetailViewController.swift */; };
+		F3219FC7271BC2230046C433 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3219FC6271BC2230046C433 /* PostDetail.storyboard */; };
+		F3219FC9271BD2610046C433 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3219FC8271BD2610046C433 /* Comment.swift */; };
+		F3219FCC271BD49B0046C433 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */; };
+		F3219FCD271BD49B0046C433 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		F318D96B271A93A6006FF8DB /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		F318D96E271A97F4006FF8DB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F318D970271AA842006FF8DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F3219FC4271BC20C0046C433 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		F3219FC6271BC2230046C433 /* PostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
+		F3219FC8271BD2610046C433 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,11 @@
 				F318D96B271A93A6006FF8DB /* PostTableViewCell.xib */,
 				F318D96E271A97F4006FF8DB /* Post.swift */,
 				F318D970271AA842006FF8DB /* User.swift */,
+				F3219FC8271BD2610046C433 /* Comment.swift */,
+				F3219FC4271BC20C0046C433 /* PostDetailViewController.swift */,
+				F3219FC6271BC2230046C433 /* PostDetail.storyboard */,
+				F3219FCA271BD49B0046C433 /* CommentTableViewCell.swift */,
+				F3219FCB271BD49B0046C433 /* CommentTableViewCell.xib */,
 			);
 			path = iPost;
 			sourceTree = "<group>";
@@ -138,9 +153,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F318D963271A92AE006FF8DB /* LaunchScreen.storyboard in Resources */,
+				F3219FCD271BD49B0046C433 /* CommentTableViewCell.xib in Resources */,
 				F318D960271A92AE006FF8DB /* Assets.xcassets in Resources */,
 				F318D95E271A92AD006FF8DB /* Main.storyboard in Resources */,
 				F318D96D271A93A6006FF8DB /* PostTableViewCell.xib in Resources */,
+				F3219FC7271BC2230046C433 /* PostDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F318D95B271A92AD006FF8DB /* ViewController.swift in Sources */,
+				F3219FC5271BC20C0046C433 /* PostDetailViewController.swift in Sources */,
 				F318D957271A92AD006FF8DB /* AppDelegate.swift in Sources */,
+				F3219FC9271BD2610046C433 /* Comment.swift in Sources */,
+				F3219FCC271BD49B0046C433 /* CommentTableViewCell.swift in Sources */,
 				F318D971271AA842006FF8DB /* User.swift in Sources */,
 				F318D959271A92AD006FF8DB /* SceneDelegate.swift in Sources */,
 				F318D96C271A93A6006FF8DB /* PostTableViewCell.swift in Sources */,
