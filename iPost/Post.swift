@@ -8,10 +8,6 @@
 import Foundation
 
 struct PostData: Codable {
-    var userId: Int
-    var id: Int
-    var title: String
-    var body: String
+    var userId, id: Int
+    var title, body: String
 }
-
-typealias Post = [PostData]

@@ -16,6 +16,7 @@
 		F318D96C271A93A6006FF8DB /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318D96A271A93A6006FF8DB /* PostTableViewCell.swift */; };
 		F318D96D271A93A6006FF8DB /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F318D96B271A93A6006FF8DB /* PostTableViewCell.xib */; };
 		F318D96F271A97F4006FF8DB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318D96E271A97F4006FF8DB /* Post.swift */; };
+		F318D971271AA842006FF8DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318D970271AA842006FF8DB /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F318D96A271A93A6006FF8DB /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		F318D96B271A93A6006FF8DB /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		F318D96E271A97F4006FF8DB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		F318D970271AA842006FF8DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				F318D96A271A93A6006FF8DB /* PostTableViewCell.swift */,
 				F318D96B271A93A6006FF8DB /* PostTableViewCell.xib */,
 				F318D96E271A97F4006FF8DB /* Post.swift */,
+				F318D970271AA842006FF8DB /* User.swift */,
 			);
 			path = iPost;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			files = (
 				F318D95B271A92AD006FF8DB /* ViewController.swift in Sources */,
 				F318D957271A92AD006FF8DB /* AppDelegate.swift in Sources */,
+				F318D971271AA842006FF8DB /* User.swift in Sources */,
 				F318D959271A92AD006FF8DB /* SceneDelegate.swift in Sources */,
 				F318D96C271A93A6006FF8DB /* PostTableViewCell.swift in Sources */,
 				F318D96F271A97F4006FF8DB /* Post.swift in Sources */,
