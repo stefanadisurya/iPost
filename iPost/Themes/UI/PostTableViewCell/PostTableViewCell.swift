@@ -9,7 +9,7 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var postTile: UILabel!
+    @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postBody: UILabel!
     @IBOutlet weak var userNameAndCompany: UILabel!
     

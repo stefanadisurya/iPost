@@ -51,7 +51,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="postBody" destination="8RA-sP-wtU" id="gc7-m2-zTu"/>
-                <outlet property="postTile" destination="esO-Ou-QgX" id="JZe-yP-dgF"/>
+                <outlet property="postTitle" destination="esO-Ou-QgX" id="OAV-Ep-Jso"/>
                 <outlet property="userNameAndCompany" destination="iJ0-OG-HHQ" id="jis-oW-O2h"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
