@@ -10,28 +10,25 @@ import UIKit
 class UserDetailViewController: UIViewController {
     
     var userId: Int?
-    var photoArr: [Photo] = []
+    var albumArr: [Album] = []
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var companyLabel: UILabel!
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getUserById(userId ?? 1)
         setUpCell()
-        getPhotos()
+        getAlbumByUserId(userId ?? 1)
     }
     
-    func setUpCell() {
-        collectionView.register(UINib(nibName: "AlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
-        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 150, height: 150)
-        }
+    private func setUpCell() {
+        tableView.register(UINib(nibName: "AlbumTableViewCell", bundle: nil), forCellReuseIdentifier: "AlbumCell")
     }
     
     private func getUserById(_ id: Int) {
@@ -53,15 +50,15 @@ class UserDetailViewController: UIViewController {
         }
     }
     
-    private func getPhotos() {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums/1/photos") { data, response, error in
+    private func getAlbumByUserId(_ id: Int) {
+        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums?userId=\(id)") { data, response, error in
             guard let data = data, error == nil else { return }
             
             do {
-                self.photoArr = try JSONDecoder().decode([Photo].self, from: data)
-
+                self.albumArr = try JSONDecoder().decode([Album].self, from: data)
+                
                 DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+                    self.tableView.reloadData()
                 }
             } catch let error {
                 print(error.localizedDescription)
@@ -71,22 +68,15 @@ class UserDetailViewController: UIViewController {
     
 }
 
-extension UserDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoArr.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return albumArr.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! AlbumCollectionViewCell
-        
-        ConsumeAPI.loadData(from: self.photoArr[indexPath.row].thumbnailUrl) {
-            data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() {
-                cell.photo.image = UIImage(data: data)
-            }
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumTableViewCell
+        cell.albumNameLabel.text = albumArr[indexPath.row].title.capitalized
         
         return cell
     }

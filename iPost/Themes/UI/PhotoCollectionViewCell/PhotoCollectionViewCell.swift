@@ -1,5 +1,5 @@
 //
-//  AlbumCollectionViewCell.swift
+//  PhotoCollectionViewCell.swift
 //  iPost
 //
 //  Created by Stefan Adisurya on 18/10/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlbumCollectionViewCell: UICollectionViewCell {
+class PhotoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photo: UIImageView!
     
