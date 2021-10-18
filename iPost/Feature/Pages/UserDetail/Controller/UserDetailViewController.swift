@@ -79,6 +79,14 @@ extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         cell.albumNameLabel.text = albumArr[indexPath.row].title.capitalized
         
+        cell.didSelectItemAction = { [weak self] indexPath in
+            let storyboard = UIStoryboard(name: "PhotoDetail", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PhotoDetail") as! PhotoDetailViewController
+            vc.photoId = indexPath.row
+            
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
         return cell
     }
     

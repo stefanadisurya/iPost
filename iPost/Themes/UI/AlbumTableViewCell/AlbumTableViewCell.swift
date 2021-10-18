@@ -9,6 +9,8 @@ import UIKit
 
 class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    var didSelectItemAction: ((IndexPath) -> Void)?
+    
     var photoArr: [Photo] = []
     var albumIdArr: [Int] = []
     
@@ -54,7 +56,7 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tapped")
+        didSelectItemAction?(indexPath)
     }
     
     private func getPhotos() {
