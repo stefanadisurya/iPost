@@ -21,9 +21,9 @@ class ViewController: UIViewController {
         
         loadDataFromAPI {
             for dt in self.dataArray {
-                self.getUser(id: dt.userId)
+                self.getUserById(id: dt.userId)
             }
-            
+
             self.tableView.reloadData()
         }
     }
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getUser(id: Int) {
+    private func getUserById(id: Int) {
         ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users/\(id)") { data, response, error in
             guard let data = data, error == nil else { return }
             
@@ -77,7 +77,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.postTitle.text = dataArray[indexPath.row].title.capitalized
         cell.postBody.text = dataArray[indexPath.row].body.capitalized
         
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users/\(self.dataArray[indexPath.row].userId)") {
+        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users?userId=\(self.dataArray[indexPath.row].userId)") {
             data, response, error in
             guard let _ = data, error == nil else { return }
             DispatchQueue.main.async() {
