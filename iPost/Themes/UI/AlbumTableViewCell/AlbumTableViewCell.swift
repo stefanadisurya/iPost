@@ -10,7 +10,7 @@ import UIKit
 class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var photoArr: [Photo] = []
-    var albumId: Int?
+    var albumIdArr: [Int] = []
     
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -51,6 +51,10 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Tapped")
     }
     
     private func getPhotos() {

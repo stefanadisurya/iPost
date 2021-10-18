@@ -76,6 +76,7 @@ extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumTableViewCell
+        cell.selectionStyle = .none
         cell.albumNameLabel.text = albumArr[indexPath.row].title.capitalized
         
         return cell
