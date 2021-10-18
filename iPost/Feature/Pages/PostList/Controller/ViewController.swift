@@ -79,7 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users/\(self.dataArray[indexPath.row].userId)") {
             data, response, error in
-            guard let data = data, error == nil else { return }
+            guard let _ = data, error == nil else { return }
             DispatchQueue.main.async() {
                 cell.userNameAndCompany.text = "\(self.userArray[indexPath.row].name) | \(self.userArray[indexPath.row].company.name)"
             }

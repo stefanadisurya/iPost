@@ -55,6 +55,8 @@ class PostDetailViewController: UIViewController {
     @objc func usernameTapped(sender: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name: "UserDetail", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "UserDetail") as! UserDetailViewController
+        vc.userId = self.userId
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
