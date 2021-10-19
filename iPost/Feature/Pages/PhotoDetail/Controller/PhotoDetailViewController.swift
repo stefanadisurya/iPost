@@ -12,6 +12,7 @@ class PhotoDetailViewController: UIViewController {
     var photoId: Int?
     var photoArr: [Photo] = []
     
+    @IBOutlet weak var imageTitleLabel: UILabel!
     @IBOutlet weak var fullImage: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -32,6 +33,7 @@ class PhotoDetailViewController: UIViewController {
                 self.photoArr = try JSONDecoder().decode([Photo].self, from: data)
                 
                 DispatchQueue.main.async {
+                    self.imageTitleLabel.text = "\(self.photoArr[0].title.capitalized)"
                     self.getImage()
                 }
             } catch let error {
