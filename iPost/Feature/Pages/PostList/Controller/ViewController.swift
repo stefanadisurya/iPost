@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setUpCell()
-        
         loadDataFromAPI {
             for dt in self.dataArray {
                 self.getUserById(id: dt.userId)

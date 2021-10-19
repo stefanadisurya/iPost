@@ -12,7 +12,7 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     var didSelectItemAction: ((IndexPath) -> Void)?
     
     var photoArr: [Photo] = []
-    var albumIdArr: [Int] = []
+    var albumArr: [Album] = []
     
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,7 +23,8 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
         collectionView.delegate = self
         collectionView.dataSource = self
         setUpCell()
-        getPhotos()
+        
+        getPhotosByAlbumId()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -59,7 +60,7 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
         didSelectItemAction?(indexPath)
     }
     
-    private func getPhotos() {
+    private func getPhotosByAlbumId() {
         ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums/1/photos") { data, response, error in
             guard let data = data, error == nil else { return }
             

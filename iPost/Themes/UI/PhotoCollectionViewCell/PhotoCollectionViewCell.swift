@@ -9,6 +9,8 @@ import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
 
+    var userId: Int?
+    
     @IBOutlet weak var photo: UIImageView!
     
     override func awakeFromNib() {

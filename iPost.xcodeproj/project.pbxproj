@@ -98,7 +98,6 @@
 			children = (
 				F31DC1D3271C14C8003B365E /* Feature */,
 				F31DC1D4271C14DA003B365E /* Themes */,
-				F31DC1D5271C14DF003B365E /* Helper */,
 				F31DC1DA271C1639003B365E /* Utilities */,
 				F318D956271A92AD006FF8DB /* AppDelegate.swift */,
 				F318D958271A92AD006FF8DB /* SceneDelegate.swift */,
@@ -121,13 +120,6 @@
 				F31DC1D8271C1530003B365E /* UI */,
 			);
 			path = Themes;
-			sourceTree = "<group>";
-		};
-		F31DC1D5271C14DF003B365E /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		F31DC1D8271C1530003B365E /* UI */ = {
