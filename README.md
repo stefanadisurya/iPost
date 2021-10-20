@@ -20,7 +20,6 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 ```
 
 ### Post List
-A page to display all post data.
 | Contents         | Source                                                          |
 | ---------------- | --------------------------------------------------------------- |
 | Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)            |
@@ -31,7 +30,6 @@ A page to display all post data.
 > `userId` should filled with the desired User ID.
 
 ### Post Detail
-A page to display post detail.
 | Contents         | Source                                                                             |
 | ---------------- | ---------------------------------------------------------------------------------- |
 | Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)                               |
@@ -42,7 +40,6 @@ A page to display post detail.
 > `userId` and `postId` should filled with the desired User ID and Post ID.
 
 ### User Detail
-A page to display user detail.
 | Contents         | Source                                                                             |
 | ---------------- | ---------------------------------------------------------------------------------- |
 | User name        | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
@@ -53,7 +50,6 @@ A page to display user detail.
 > `userId` should filled with the desired User ID.
 
 ### Photo Detail
-A page to display photo from user's album.
 | Contents         | Source                                                                                             |
 | ---------------- | -------------------------------------------------------------------------------------------------- |
 | Photo title      | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
