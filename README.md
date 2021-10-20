@@ -4,19 +4,29 @@
 
 A simple iOS app to display data from a REST API.
 
-## Pages
-### Post List
-A page to display all post data. Data fetched from:
-
+## Fetch data using ConsumeAPI
+ConsumeAPI is a reusable function to fetch data for the app. Simply use the ConsumeAPI by typing:
 ```swift
-https://jsonplaceholder.typicode.com/posts
+ConsumeAPI.loadData(from: <API>) { data, response, error in
+  // Manipulate data
+}
 ```
 
-Each post contains:
-- Post title
-- Post body
-- Author's name
-- Author's company
+Example:
+```swift
+ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, response, error in
+  // Manipulate data
+}
+```
+
+### Post List
+A page to display all post data. Each post contains:
+| Contents         | API Query Parameter                                       |
+| ---------------- |:---------------------------------------------------------:|
+| Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)      |
+| Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)      |
+| Author's name    | [/users/id](https://jsonplaceholder.typicode.com/users/1) |
+| Author's company | [/users/id](https://jsonplaceholder.typicode.com/users/1) |
 
 ### Post Detail
 A page to display post detail. Each post detail contains:
