@@ -20,7 +20,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 ```
 <br />
 
-## Fetch data using ConsumeAPI
+## Pages
 ### Post List
 | Contents         | Source                                                          |
 | ---------------- | --------------------------------------------------------------- |
