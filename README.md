@@ -14,7 +14,7 @@ A page to display all post data. Each post contains:
 
 ### Post Detail
 A page to display post detail. Each post detail contains:
-- Pos title
+- Post title
 - Post body
 - Author's name
 - Comments
