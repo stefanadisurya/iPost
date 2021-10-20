@@ -6,7 +6,13 @@ A simple iOS app to display data from a REST API.
 
 ## Pages
 ### Post List
-A page to display all post data. Each post contains:
+A page to display all post data. Data fetched from:
+
+```swift
+https://jsonplaceholder.typicode.com/posts
+```
+
+Each post contains:
 - Post title
 - Post body
 - Author's name
