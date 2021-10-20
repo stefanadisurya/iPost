@@ -1,6 +1,7 @@
 # iPost
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=stefanadisurya.iPost)
+![Platform](https://img.shields.io/cocoapods/p/ios)
+![Last commit](https://img.shields.io/github/last-commit/stefanadisurya/iPost)
 
 ![iPost's Logo](https://user-images.githubusercontent.com/64721275/138050824-9007ed9e-d8eb-4449-8837-a4bb1fcdbecb.png)
 
