@@ -28,6 +28,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | Author's company | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
 
 > `userId` should filled with the desired User ID.
+<br/>
 
 ### Post Detail
 | Contents         | Source                                                                             |
@@ -38,6 +39,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | Comments         | [/posts/`postId`/comments](https://jsonplaceholder.typicode.com/posts/1/comments)  |
 
 > `userId` and `postId` should filled with the desired User ID and Post ID.
+<br/>
 
 ### User Detail
 | Contents         | Source                                                                             |
@@ -48,6 +50,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | User's album     | [/albums?userId=`userId`](https://jsonplaceholder.typicode.com/albums?userId=1)    |
 
 > `userId` should filled with the desired User ID.
+<br/>
 
 ### Photo Detail
 | Contents         | Source                                                                                             |
@@ -56,6 +59,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | Photo            | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
 
 > `albumId` and `photoId` should filled with the desired Album ID and Photo ID.
+<br/>
 
 ## Tech Stack
 ### UIKit
