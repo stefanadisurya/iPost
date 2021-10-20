@@ -7,7 +7,7 @@ A simple iOS app to display data from a REST API.
 ## Fetch data using ConsumeAPI
 ConsumeAPI is a reusable function to fetch data for the app. Simply use the ConsumeAPI by typing:
 ```swift
-ConsumeAPI.loadData(from: <API>) { data, response, error in
+ConsumeAPI.loadData(from: `API`) { data, response, error in
   // Manipulate data
 }
 ```
