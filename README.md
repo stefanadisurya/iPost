@@ -27,6 +27,7 @@ A page to display all post data.
 | Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)            |
 | Author's name    | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
 | Author's company | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
+
 `userId` should filled with the desired User ID.
 
 ### Post Detail
