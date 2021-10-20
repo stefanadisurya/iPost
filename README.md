@@ -3,7 +3,7 @@
 ![Platform](https://img.shields.io/cocoapods/p/ios)
 ![Last commit](https://img.shields.io/github/last-commit/stefanadisurya/iPost)
 
-![iPost's Logo](https://user-images.githubusercontent.com/64721275/138050824-9007ed9e-d8eb-4449-8837-a4bb1fcdbecb.png)
+![App Banner](https://user-images.githubusercontent.com/64721275/138066531-ab429610-a13c-490c-9d4d-d1340e95e2b1.png)
 
 A simple iOS app to display data from a REST API.
 
