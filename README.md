@@ -5,7 +5,7 @@
 
 iPost is a simple iOS app to display data from a REST API.
 
-![App Banner](https://user-images.githubusercontent.com/64721275/138066531-ab429610-a13c-490c-9d4d-d1340e95e2b1.png)
+![App Banner](https://user-images.githubusercontent.com/64721275/138067183-6ff52858-16f5-4f01-92aa-5a9ab1e01a1a.png)
 
 ## Fetch data using ConsumeAPI
 ConsumeAPI is a reusable function to fetch data for the app. Simply use the ConsumeAPI by typing:
