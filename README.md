@@ -20,8 +20,8 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 ```
 
 ### Post List
-A page to display all post data. Each post contains:
-| Contents         | API Query Parameter                                       |
+A page to display all post data.
+| Contents         | Source                                                    |
 | ---------------- |:---------------------------------------------------------:|
 | Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)      |
 | Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)      |
@@ -29,19 +29,22 @@ A page to display all post data. Each post contains:
 | Author's company | [/users/id](https://jsonplaceholder.typicode.com/users/1) |
 
 ### Post Detail
-A page to display post detail. Each post detail contains:
-- Post title
-- Post body
-- Author's name
-- Comments
+A page to display post detail.
+| Contents         | Source                                                                      |
+| ---------------- |:---------------------------------------------------------------------------:|
+| Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)                        |
+| Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)                        |
+| Author's name    | [/users/id](https://jsonplaceholder.typicode.com/users/1)                   |
+| Comments         | [/posts/id/comments](https://jsonplaceholder.typicode.com/posts/1/comments) |
 
 ### User Detail
 A page to display user detail. This page contains:
-- User name
-- User email
-- User address
-- User company
-- User's album
+| Contents         | Source                                                                              |
+| ---------------- |:-----------------------------------------------------------------------------------:|
+| User name        | [/users/id](https://jsonplaceholder.typicode.com/users/1)                           |
+| User email       | [/users/id](https://jsonplaceholder.typicode.com/users/1)                           |
+| User address     | [/users/id](https://jsonplaceholder.typicode.com/users/1)                           |
+| User's album     | [`/albums?userId=renders`](https://jsonplaceholder.typicode.com/albums?userId=1)      |
 
 ### Photo Detail
 A page to display photo from user's album. This page contains:
