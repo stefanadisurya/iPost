@@ -7,7 +7,7 @@ A simple iOS app to display data from a REST API.
 ## Fetch data using ConsumeAPI
 ConsumeAPI is a reusable function to fetch data for the app. Simply use the ConsumeAPI by typing:
 ```swift
-ConsumeAPI.loadData(from: `API`) { data, response, error in
+ConsumeAPI.loadData(from: <API>) { data, response, error in
   // Manipulate data
 }
 ```
@@ -27,6 +27,7 @@ A page to display all post data.
 | Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)            |
 | Author's name    | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
 | Author's company | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
+`userId` should filled with the desired User ID.
 
 ### Post Detail
 A page to display post detail.
@@ -36,6 +37,7 @@ A page to display post detail.
 | Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)                               |
 | Author's name    | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
 | Comments         | [/posts/`postId`/comments](https://jsonplaceholder.typicode.com/posts/1/comments)  |
+`userId` and `postId` should filled with the desired User ID and Post ID.
 
 ### User Detail
 A page to display user detail.
@@ -45,6 +47,7 @@ A page to display user detail.
 | User email       | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
 | User address     | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
 | User's album     | [/albums?userId=`userId`](https://jsonplaceholder.typicode.com/albums?userId=1)    |
+`userId` should filled with the desired User ID.
 
 ### Photo Detail
 A page to display photo from user's album.
@@ -52,6 +55,7 @@ A page to display photo from user's album.
 | ---------------- | -------------------------------------------------------------------------------------------------- |
 | Photo title      | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
 | Photo            | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
+`albumId` and `photoId` should filled with the desired Album ID and Photo ID.
 
 ## Tech Stack
 ### UIKit
