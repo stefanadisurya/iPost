@@ -21,35 +21,37 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 
 ### Post List
 A page to display all post data.
-| Contents         | Source                                                    |
-| ---------------- |:---------------------------------------------------------:|
-| Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)      |
-| Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)      |
-| Author's name    | [/users/id](https://jsonplaceholder.typicode.com/users/1) |
-| Author's company | [/users/id](https://jsonplaceholder.typicode.com/users/1) |
+| Contents         | Source                                                          |
+| ---------------- |:---------------------------------------------------------------:|
+| Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)            |
+| Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)            |
+| Author's name    | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
+| Author's company | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
 
 ### Post Detail
 A page to display post detail.
-| Contents         | Source                                                                      |
-| ---------------- |:---------------------------------------------------------------------------:|
-| Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)                        |
-| Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)                        |
-| Author's name    | [/users/id](https://jsonplaceholder.typicode.com/users/1)                   |
-| Comments         | [/posts/id/comments](https://jsonplaceholder.typicode.com/posts/1/comments) |
+| Contents         | Source                                                                             |
+| ---------------- |:----------------------------------------------------------------------------------:|
+| Post title       | [/posts](https://jsonplaceholder.typicode.com/posts)                               |
+| Post body        | [/posts](https://jsonplaceholder.typicode.com/posts)                               |
+| Author's name    | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
+| Comments         | [/posts/`postId`/comments](https://jsonplaceholder.typicode.com/posts/1/comments)  |
 
 ### User Detail
-A page to display user detail. This page contains:
-| Contents         | Source                                                                              |
-| ---------------- |:-----------------------------------------------------------------------------------:|
-| User name        | [/users/id](https://jsonplaceholder.typicode.com/users/1)                           |
-| User email       | [/users/id](https://jsonplaceholder.typicode.com/users/1)                           |
-| User address     | [/users/id](https://jsonplaceholder.typicode.com/users/1)                           |
-| User's album     | [`/albums?userId=renders`](https://jsonplaceholder.typicode.com/albums?userId=1)      |
+A page to display user detail.
+| Contents         | Source                                                                             |
+| ---------------- |:----------------------------------------------------------------------------------:|
+| User name        | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
+| User email       | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
+| User address     | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
+| User's album     | [/albums?userId=`userId`](https://jsonplaceholder.typicode.com/albums?userId=1)    |
 
 ### Photo Detail
-A page to display photo from user's album. This page contains:
-- Photo title
-- Photo (with zoom capability)
+A page to display photo from user's album.
+| Contents         | Source                                                                                             |
+| ---------------- |:--------------------------------------------------------------------------------------------------:|
+| Photo title      | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
+| Photo            | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
 
 ## Tech Stack
 ### UIKit
