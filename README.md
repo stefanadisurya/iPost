@@ -3,9 +3,9 @@
 ![Platform](https://img.shields.io/cocoapods/p/ios)
 ![Last commit](https://img.shields.io/github/last-commit/stefanadisurya/iPost)
 
-![App Banner](https://user-images.githubusercontent.com/64721275/138066531-ab429610-a13c-490c-9d4d-d1340e95e2b1.png)
+iPost is a simple iOS app to display data from a REST API.
 
-A simple iOS app to display data from a REST API.
+![App Banner](https://user-images.githubusercontent.com/64721275/138066531-ab429610-a13c-490c-9d4d-d1340e95e2b1.png)
 
 ## Fetch data using ConsumeAPI
 ConsumeAPI is a reusable function to fetch data for the app. Simply use the ConsumeAPI by typing:
