@@ -12,7 +12,6 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     var didSelectItemAction: ((IndexPath) -> Void)?
     
     var photoArr: [Photo] = []
-    var albumArr: [Album] = []
     
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -61,17 +60,19 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     }
     
     private func getPhotosByAlbumId() {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums/1/photos") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                self.photoArr = try JSONDecoder().decode([Photo].self, from: data)
+        if let albumUrl = Constants.albumUrl {
+            ConsumeAPI.loadData(from: "\(albumUrl)/1/photos") { data, response, error in
+                guard let data = data, error == nil else { return }
+                
+                do {
+                    self.photoArr = try JSONDecoder().decode([Photo].self, from: data)
 
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error.localizedDescription)
             }
         }
     }

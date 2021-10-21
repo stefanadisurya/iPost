@@ -32,36 +32,40 @@ class UserDetailViewController: UIViewController {
     }
     
     private func getUserById(_ id: Int) {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users/\(id)") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                let dataJSON = try JSONDecoder().decode(User.self, from: data)
+        if let userUrl = Constants.userUrl {
+            ConsumeAPI.loadData(from: "\(userUrl)/\(id)") { data, response, error in
+                guard let data = data, error == nil else { return }
                 
-                DispatchQueue.main.async {
-                    self.nameLabel.text = dataJSON.name
-                    self.emailLabel.text = dataJSON.email
-                    self.addressLabel.text = "\(dataJSON.address.street), \(dataJSON.address.suite), \(dataJSON.address.city)"
-                    self.companyLabel.text = "\(dataJSON.company.name)"
+                do {
+                    let dataJSON = try JSONDecoder().decode(User.self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        self.nameLabel.text = dataJSON.name
+                        self.emailLabel.text = dataJSON.email
+                        self.addressLabel.text = "\(dataJSON.address.street), \(dataJSON.address.suite), \(dataJSON.address.city)"
+                        self.companyLabel.text = "\(dataJSON.company.name)"
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error.localizedDescription)
             }
         }
     }
     
     private func getAlbumByUserId(_ id: Int) {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums?userId=\(id)") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                self.albumArr = try JSONDecoder().decode([Album].self, from: data)
+        if let albumUrl = Constants.albumUrl {
+            ConsumeAPI.loadData(from: "\(albumUrl)?userId=\(id)") { data, response, error in
+                guard let data = data, error == nil else { return }
                 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                do {
+                    self.albumArr = try JSONDecoder().decode([Album].self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error.localizedDescription)
             }
         }
     }

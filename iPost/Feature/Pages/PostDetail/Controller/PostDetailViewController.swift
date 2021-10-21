@@ -61,32 +61,22 @@ class PostDetailViewController: UIViewController {
     }
     
     private func getCommentsByPostId(_ id: Int) {
-        let request = NSMutableURLRequest(url: NSURL(string: "https://jsonplaceholder.typicode.com/posts/\(id)/comments")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            if error != nil {
-                print(error as Any)
-            } else {
-                if let data = data {
-                    do {
-                        self.commentArr = try JSONDecoder().decode([Comment].self, from: data)
+        if let postUrl = Constants.postUrl {
+            ConsumeAPI.loadData(from: "\(postUrl)/\(id)/comments") { data, response, error in
+                guard let data = data, error == nil else { return }
+                
+                do {
+                    self.commentArr = try JSONDecoder().decode([Comment].self, from: data)
 
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                            self.commentLabel.text = "\(self.commentArr.count) Comments"
-                        }
-                    } catch let error {
-                        print(error.localizedDescription)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.commentLabel.text = "\(self.commentArr.count) Comments"
                     }
+                } catch let error {
+                    print(error.localizedDescription)
                 }
             }
-        })
-        
-        dataTask.resume()
+        }
     }
     
 }

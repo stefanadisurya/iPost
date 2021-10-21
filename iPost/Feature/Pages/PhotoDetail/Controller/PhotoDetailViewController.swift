@@ -26,18 +26,20 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func getPhotoDetailById(_ id: Int) {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums/1/photos?id=\(id)") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                self.photoArr = try JSONDecoder().decode([Photo].self, from: data)
+        if let albumUrl = Constants.albumUrl {
+            ConsumeAPI.loadData(from: "\(albumUrl)/1/photos?id=\(id)") { data, response, error in
+                guard let data = data, error == nil else { return }
                 
-                DispatchQueue.main.async {
-                    self.imageTitleLabel.text = "\(self.photoArr[0].title.capitalized)"
-                    self.getImage()
+                do {
+                    self.photoArr = try JSONDecoder().decode([Photo].self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        self.imageTitleLabel.text = "\(self.photoArr[0].title.capitalized)"
+                        self.getImage()
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error.localizedDescription)
             }
         }
     }

@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct Constants {
+    static let userUrl = URL(string: "https://jsonplaceholder.typicode.com/users")
+    static let postUrl = URL(string: "https://jsonplaceholder.typicode.com/posts")
+    static let albumUrl = URL(string: "https://jsonplaceholder.typicode.com/albums")
+}
+
 class ConsumeAPI {
     
     static let session = URLSession.shared

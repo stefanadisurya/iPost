@@ -48,17 +48,19 @@ class ViewController: UIViewController {
     }
     
     private func getUserById(id: Int) {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users/\(id)") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                self.userArray.append(try JSONDecoder().decode(User.self, from: data))
+        if let userUrl = Constants.userUrl {
+            ConsumeAPI.loadData(from: "\(userUrl)/\(id)") { data, response, error in
+                guard let data = data, error == nil else { return }
                 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                do {
+                    self.userArray.append(try JSONDecoder().decode(User.self, from: data))
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error.localizedDescription)
             }
         }
     }
@@ -76,11 +78,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.postTitle.text = dataArray[indexPath.row].title.capitalized
         cell.postBody.text = dataArray[indexPath.row].body.capitalized
         
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users?userId=\(self.dataArray[indexPath.row].userId)") {
-            data, response, error in
-            guard let _ = data, error == nil else { return }
-            DispatchQueue.main.async() {
-                cell.userNameAndCompany.text = "\(self.userArray[indexPath.row].name) | \(self.userArray[indexPath.row].company.name)"
+        if let userUrl = Constants.userUrl {
+            ConsumeAPI.loadData(from: "\(userUrl)?userId=\(self.dataArray[indexPath.row].userId)") {
+                data, response, error in
+                guard let _ = data, error == nil else { return }
+                DispatchQueue.main.async() {
+                    cell.userNameAndCompany.text = "\(self.userArray[indexPath.row].name) | \(self.userArray[indexPath.row].company.name)"
+                }
             }
         }
         
