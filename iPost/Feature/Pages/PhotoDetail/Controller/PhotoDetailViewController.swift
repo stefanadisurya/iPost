@@ -44,27 +44,14 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func getImage() {
-        URLSession.shared.request(url: URL(string: self.photos[0].thumbnailUrl), expecting: [Photo].self) { [weak self] result in
+        URLSession.shared.get(url: URL(string: self.photos[0].thumbnailUrl)) { result in
             switch result {
-            case .success(let photos):
+            case .success(let data):
                 DispatchQueue.main.async {
-                    self?.photos = photos
-                    
-                    if let title = self?.photos[0].title.capitalized {
-                        self?.imageTitleLabel.text = "\(title)"
-                    }
-                    self?.getImage()
+                    self.fullImage.image = UIImage(data: data)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-            }
-        }                  
-        
-        ConsumeAPI.loadData(from: self.photos[0].thumbnailUrl) {
-            data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() {
-                self.fullImage.image = UIImage(data: data)
             }
         }
     }

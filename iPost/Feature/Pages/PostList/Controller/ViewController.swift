@@ -76,7 +76,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         URLSession.shared.get(url: URL(string: "https://jsonplaceholder.typicode.com/users?userId=\(self.posts[indexPath.row].userId)")) { result in
             switch result {
-            case .success():
+            case .success(let data):
                 DispatchQueue.main.async {
                     cell.userNameAndCompany.text = "\(self.users[indexPath.row].name) | \(self.users[indexPath.row].company.name)"
                 }

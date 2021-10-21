@@ -13,28 +13,6 @@ struct Constants {
     static let albumUrl = URL(string: "https://jsonplaceholder.typicode.com/albums")
 }
 
-class ConsumeAPI {
-    
-    static let session = URLSession.shared
-    
-    static func loadData(from url: String, code: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            if error != nil {
-                print(error as Any)
-            } else {
-                code(data, response, error)
-            }
-        })
-        
-        dataTask.resume()
-    }
-    
-}
-
 extension URLSession {
     
     enum CustomError: Error {
@@ -69,7 +47,7 @@ extension URLSession {
         task.resume()
     }
     
-    func get(url: URL?, completion: @escaping (Result<(), Error>) -> Void) {
+    func get(url: URL?, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = url else {
             completion(.failure(CustomError.invalidUrl))
             return
@@ -86,7 +64,9 @@ extension URLSession {
             }
             
             do {
-                completion(.success(()))
+                if let data = data {
+                    completion(.success(data))
+                }
             } catch {
                 completion(.failure(error))
             }

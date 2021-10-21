@@ -44,11 +44,14 @@ class AlbumTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCollectionViewCell
         
-        ConsumeAPI.loadData(from: self.photos[indexPath.row].thumbnailUrl) {
-            data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() {
-                cell.photo.image = UIImage(data: data)
+        URLSession.shared.get(url: URL(string: self.photos[indexPath.row].thumbnailUrl)) { result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    cell.photo.image = UIImage(data: data)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
         
