@@ -32,7 +32,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | Author's name    | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
 | Author's company | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1) |
 
-> `userId` should filled with the desired User ID.
+> `userId` should be filled with the desired User ID.
 <br/>
 
 ### Post Detail
@@ -43,7 +43,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | Author's name    | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
 | Comments         | [/posts/`postId`/comments](https://jsonplaceholder.typicode.com/posts/1/comments)  |
 
-> `userId` and `postId` should filled with the desired User ID and Post ID.
+> `userId` and `postId` should be filled with the desired User ID and Post ID.
 <br/>
 
 ### User Detail
@@ -54,7 +54,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | User address     | [/users/`userId`](https://jsonplaceholder.typicode.com/users/1)                    |
 | User's album     | [/albums?userId=`userId`](https://jsonplaceholder.typicode.com/albums?userId=1)    |
 
-> `userId` should filled with the desired User ID.
+> `userId` should be filled with the desired User ID.
 <br/>
 
 ### Photo Detail
@@ -63,7 +63,7 @@ ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/posts") { data, 
 | Photo title      | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
 | Photo            | [/albums/`albumId`/photos?id=`photoId`](https://jsonplaceholder.typicode.com/albums/1/photos?id=1) |
 
-> `albumId` and `photoId` should filled with the desired Album ID and Photo ID.
+> `albumId` and `photoId` should be filled with the desired Album ID and Photo ID.
 <br/>
 
 ## Tech Stack
@@ -72,3 +72,6 @@ The main Swift framework used to develop the app ([UITableView](https://develope
 
 ### REST API
 Data displayed in the app is fetched from [JSONPlaceholder](https://jsonplaceholder.typicode.com/). There are no particular library used to fetch the data to avoid dependencies.
+
+### Architecture
+iPost is using MVC as its architecture.
