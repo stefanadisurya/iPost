@@ -25,7 +25,7 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    var commentArr: [Comment] = []
+    var comments: [Comment] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,32 +61,24 @@ class PostDetailViewController: UIViewController {
     }
     
     private func getCommentsByPostId(_ id: Int) {
-        let request = NSMutableURLRequest(url: NSURL(string: "https://jsonplaceholder.typicode.com/posts/\(id)/comments")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            if error != nil {
-                print(error as Any)
-            } else {
-                if let data = data {
-                    do {
-                        self.commentArr = try JSONDecoder().decode([Comment].self, from: data)
-
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                            self.commentLabel.text = "\(self.commentArr.count) Comments"
+        if let postUrl = Constants.postUrl {
+            URLSession.shared.request(url: URL(string: "\(postUrl)/\(id)/comments"), expecting: [Comment].self) { [weak self] result in
+                switch result {
+                case .success(let comments):
+                    DispatchQueue.main.async {
+                        self?.comments = comments
+                        
+                        if let count = self?.comments.count {
+                            self?.commentLabel.text = "\(count) Comments"
                         }
-                    } catch let error {
-                        print(error.localizedDescription)
+                        
+                        self?.tableView.reloadData()
                     }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
-        })
-        
-        dataTask.resume()
+        }
     }
     
 }
@@ -94,14 +86,14 @@ class PostDetailViewController: UIViewController {
 extension PostDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentArr.count
+        return comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
         cell.selectionStyle = .none
-        cell.authorLabel.text = commentArr[indexPath.row].email.components(separatedBy: "@")[0]
-        cell.commentBodyLabel.text = commentArr[indexPath.row].body
+        cell.authorLabel.text = comments[indexPath.row].email.components(separatedBy: "@")[0]
+        cell.commentBodyLabel.text = comments[indexPath.row].body
         
         return cell
     }

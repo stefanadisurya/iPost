@@ -46,15 +46,17 @@ class ViewController: UIViewController {
     }
     
     private func getUserById(id: Int) {
-        URLSession.shared.request(url: URL(string: "https://jsonplaceholder.typicode.com/users/\(id)"), expecting: User.self) { [weak self] result in
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async {
-                    self?.users.append(user)
-                    self?.tableView.reloadData()
+        if let userUrl = Constants.userUrl {
+            URLSession.shared.request(url: URL(string: "\(userUrl)/\(id)"), expecting: User.self) { [weak self] result in
+                switch result {
+                case .success(let user):
+                    DispatchQueue.main.async {
+                        self?.users.append(user)
+                        self?.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
             }
         }
     }

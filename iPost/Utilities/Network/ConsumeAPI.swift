@@ -8,8 +8,9 @@
 import Foundation
 
 struct Constants {
-    static let userUrl = URL(string: "https://jsonplaceholder.typicode.com/users/")
+    static let userUrl = URL(string: "https://jsonplaceholder.typicode.com/users")
     static let postUrl = URL(string: "https://jsonplaceholder.typicode.com/posts")
+    static let albumUrl = URL(string: "https://jsonplaceholder.typicode.com/albums")
 }
 
 class ConsumeAPI {
@@ -75,7 +76,7 @@ extension URLSession {
         }
         
         let task = self.dataTask(with: url) { data, _, error in
-            guard let data = data else {
+            guard data != nil else {
                 if let error = error {
                     completion(.failure(error))
                 } else {

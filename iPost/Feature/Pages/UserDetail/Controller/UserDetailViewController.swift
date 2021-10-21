@@ -10,7 +10,7 @@ import UIKit
 class UserDetailViewController: UIViewController {
     
     var userId: Int?
-    var albumArr: [Album] = []
+    var albums: [Album] = []
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -32,36 +32,35 @@ class UserDetailViewController: UIViewController {
     }
     
     private func getUserById(_ id: Int) {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/users/\(id)") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                let dataJSON = try JSONDecoder().decode(User.self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.nameLabel.text = dataJSON.name
-                    self.emailLabel.text = dataJSON.email
-                    self.addressLabel.text = "\(dataJSON.address.street), \(dataJSON.address.suite), \(dataJSON.address.city)"
-                    self.companyLabel.text = "\(dataJSON.company.name)"
+        if let userUrl = Constants.userUrl {
+            URLSession.shared.request(url: URL(string: "\(userUrl)/\(id)"), expecting: User.self) { [weak self] result in
+                switch result {
+                case .success(let user):
+                    DispatchQueue.main.async {
+                        self?.nameLabel.text = user.name
+                        self?.emailLabel.text = user.email
+                        self?.addressLabel.text = "\(user.address.street), \(user.address.suite), \(user.address.city)"
+                        self?.companyLabel.text = "\(user.company.name)"
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error.localizedDescription)
             }
         }
     }
     
     private func getAlbumByUserId(_ id: Int) {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums?userId=\(id)") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                self.albumArr = try JSONDecoder().decode([Album].self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+        if let albumUrl = Constants.albumUrl {
+            URLSession.shared.request(url: URL(string: "\(albumUrl)?userId=\(id)"), expecting: [Album].self) { [weak self] result in
+                switch result {
+                case .success(let albums):
+                    DispatchQueue.main.async {
+                        self?.albums = albums
+                        self?.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error.localizedDescription)
             }
         }
     }
@@ -71,13 +70,13 @@ class UserDetailViewController: UIViewController {
 extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return albumArr.count
+        return albums.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumTableViewCell
         cell.selectionStyle = .none
-        cell.albumNameLabel.text = albumArr[indexPath.row].title.capitalized
+        cell.albumNameLabel.text = albums[indexPath.row].title.capitalized
         
         cell.didSelectItemAction = { [weak self] indexPath in
             let storyboard = UIStoryboard(name: "PhotoDetail", bundle: nil)

@@ -10,7 +10,7 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
     
     var photoId: Int?
-    var photoArr: [Photo] = []
+    var photos: [Photo] = []
     
     @IBOutlet weak var imageTitleLabel: UILabel!
     @IBOutlet weak var fullImage: UIImageView!
@@ -26,24 +26,41 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func getPhotoDetailById(_ id: Int) {
-        ConsumeAPI.loadData(from: "https://jsonplaceholder.typicode.com/albums/1/photos?id=\(id)") { data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                self.photoArr = try JSONDecoder().decode([Photo].self, from: data)
-                
+        URLSession.shared.request(url: URL(string: "https://jsonplaceholder.typicode.com/albums/1/photos?id=\(id)"), expecting: [Photo].self) { [weak self] result in
+            switch result {
+            case .success(let photos):
                 DispatchQueue.main.async {
-                    self.imageTitleLabel.text = "\(self.photoArr[0].title.capitalized)"
-                    self.getImage()
+                    self?.photos = photos
+                    
+                    if let title = self?.photos[0].title.capitalized {
+                        self?.imageTitleLabel.text = "\(title)"
+                    }
+                    self?.getImage()
                 }
-            } catch let error {
+            case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
     
     private func getImage() {
-        ConsumeAPI.loadData(from: self.photoArr[0].thumbnailUrl) {
+        URLSession.shared.request(url: URL(string: self.photos[0].thumbnailUrl), expecting: [Photo].self) { [weak self] result in
+            switch result {
+            case .success(let photos):
+                DispatchQueue.main.async {
+                    self?.photos = photos
+                    
+                    if let title = self?.photos[0].title.capitalized {
+                        self?.imageTitleLabel.text = "\(title)"
+                    }
+                    self?.getImage()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }                  
+        
+        ConsumeAPI.loadData(from: self.photos[0].thumbnailUrl) {
             data, response, error in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() {
