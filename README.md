@@ -75,7 +75,3 @@ Data displayed in the app is fetched from [JSONPlaceholder](https://jsonplacehol
 
 ### Architecture
 iPost is using MVC as its architecture.
-
-```
-Branch `with-generic` is currently under development.
-```
